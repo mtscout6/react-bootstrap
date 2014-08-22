@@ -13,7 +13,8 @@ var PanelGroup = React.createClass({
     collapsable: React.PropTypes.bool,
     activeKey: React.PropTypes.any,
     defaultActiveKey: React.PropTypes.any,
-    onSelect: React.PropTypes.func
+    onSelect: React.PropTypes.func,
+    alwaysOneOpen: React.PropTypes.bool
   },
 
   getDefaultProps: function () {
@@ -51,6 +52,7 @@ var PanelGroup = React.createClass({
     if (this.props.accordion) {
       props.collapsable = true;
       props.expanded = (child.props.key === activeKey);
+      props.headerCollapsable = this.props.alwaysOneOpen ? !props.expanded : true;
       props.onSelect = this.handleSelect;
     }
 
