@@ -89,9 +89,9 @@ var Panel = React.createClass({
     }
 
     if (!React.isValidComponent(header) || Array.isArray(header)) {
-      header = this.props.collapsable ?
+      header = this.props.headerCollapsable ?
         this.renderCollapsableTitle(header) : header;
-    } else if (this.props.collapsable) {
+    } else if (this.props.headerCollapsable) {
       header = cloneWithProps(header, {
         className: 'panel-title',
         children: this.renderAnchor(header.props.children)
